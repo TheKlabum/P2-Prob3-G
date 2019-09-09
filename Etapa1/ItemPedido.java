@@ -12,28 +12,31 @@ public class ItemPedido {
         this.setQuantidade(quantidade);
     }
 
-    public Produto getProduto() {
+    protected double getValorItem() {
+        double valor;
+        valor = produto.getValor() * this.quantidade;
+        return valor;
+    }
+    
+    protected Produto getProduto() {
         return produto;
     }
 
-    public void setProduto(Produto produto) {
+    protected void setProduto(Produto produto) {
         if (produto == null) {
             throw new IllegalArgumentException("Produto inválido");
         }
         this.produto = produto;
     }
 
-    public int getQuantidade() {
+    protected int getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    protected void setQuantidade(int quantidade) {
         if (quantidade < 0) {
             throw new IllegalArgumentException("Quantidade inválida");
         }
         this.quantidade = quantidade;
-    }
-    
-    
-    
+    }    
 }
