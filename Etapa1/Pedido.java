@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,7 +11,24 @@ public class Pedido {
     private String nomeCliente;
     private Date data;
     private String endereco;
-
+    private ArrayList<ItemPedido> itens = new ArrayList();
+    
+    public double getValorPedido() {
+        double valor = 0;
+        for (ItemPedido item: this.itens) {
+            valor += item.getValorItem();
+        }
+        return valor;
+    }
+    
+    public void incluirItem(ItemPedido item) {
+        if (item == null) {
+            throw new IllegalArgumentException("Item inválido");
+        }
+        this.itens.add(item);
+    }
+    
+    
     public int getNumero() {
         return numero;
     }
@@ -51,7 +68,5 @@ public class Pedido {
             throw new IllegalArgumentException("Endereço do cliente inválido");
         }
         this.endereco = endereco;
-    }
-    
-    
+    }   
 }
