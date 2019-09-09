@@ -45,9 +45,5 @@ public class Produto {
             throw new IllegalArgumentException("Peso do produto inválido");
         }
         this.peso = peso;
-    }
-    
-    
-    
-    
+    }    
 }
